@@ -18,7 +18,7 @@ We plan on viewing our data and looking at any categorical values and one hot en
 We are thinking of doing logistic regression and a neural network. We think that logistic regression is better for classification of multiple classes, and that neural networks would be more accurate and can predict more types.
 
 7. **Conclusion section: What is the conclusion of your 1st model? What can be done to possibly improve it?**
-Our 1st model concludes that linear regression looks like a good fit for the data, but it does not consider that this is a classification problem. The MSE only indicates the continuous values, rather than the probability of what star type it may be. To improve it, models like logistic regression and a neural network may need to be used. These models are better suited for classification problems than linear regression is. If we strictly wanted to improve the linear regression model, we would need to collect more data and select better correlated features.
+Our 1st model concludes that linear regression does not look like a good fit for the data, because this is a classification problem. The MSE only indicates the continuous values, rather than the probability of what star type it may be. To improve it, models like logistic regression and a neural network may need to be used. These models are better suited for classification problems than linear regression is. If we strictly wanted to improve the linear regression model, we would need to collect more data and select better correlated features.
 
 ## Our Contributors :
 
