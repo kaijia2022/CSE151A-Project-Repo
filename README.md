@@ -20,6 +20,8 @@ We are thinking of doing logistic regression and a neural network. We think that
 7. **Conclusion section: What is the conclusion of your 1st model? What can be done to possibly improve it?**
 Our 1st model concludes that linear regression does not look like a good fit for the data, because this is a classification problem. The MSE only indicates the continuous values, rather than the probability of what star type it may be. To improve it, models like logistic regression and a neural network may need to be used. These models are better suited for classification problems than linear regression is. If we strictly wanted to improve the linear regression model, we would need to collect more data and select better correlated features.
 
+![Fitting plot](image.png)
+
 ## Our Contributors :
 
 <a href="https://github.com/kaijia2022/CSE151A-Project-Repo/graphs/contributors">
