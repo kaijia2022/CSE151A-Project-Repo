@@ -153,27 +153,39 @@ ___
 ### Model 3: Naive Bayes
 We split our training data to categorical data and numerical data. We used categorical data to train Categorical Naive Bayes model, and used numerical data to train Gaussian Naive Bayes model.
 
-Categorical Naive Bayes model
+  **Categorical Naive Bayes model**
 1. we split the training data to categorical data
 ```
 X_train_categorical = X_train.drop(columns=['Absolute magnitude(Mv)', 'Temperature (K)', 'Luminosity(L/Lo)',	'Radius(R/Ro)'])
 X_test_categorical = X_test.drop(columns=['Absolute magnitude(Mv)', 'Temperature (K)', 'Luminosity(L/Lo)',	'Radius(R/Ro)'])
 ```
-Initialize the Categorical Naive Bayes model 
-art dn
+2. Initialize the Categorical Naive Bayes model and fit our training data
 ```
 CNB_classifier = CategoricalNB()
 CNB_classifier.fit(X_train_categorical, y_train)
 ```
-
-
- Gaussian Naive Bayes model
- ```
-X_train_numerical = X_train[['Absolute magnitude(Mv)', 'Temperature (K)', 'Luminosity(L/Lo)',	'Radius(R/Ro)']]
-X_test_numerical = X_test[['Absolute magnitude(Mv)', 'Temperature (K)', 'Luminosity(L/Lo)',	'Radius(R/Ro)']]
-NB_classifier = GaussianNB()
-NB_classifier.fit(X_train_numerical, y_train)
+3. Printing the classification report to see our model's performance
 ```
+y_pred = CNB_classifier.predict(X_test_categorical)
+print(classification_report(y_test, y_pred))
+```
+
+   **Gaussian Naive Bayes model**
+ 1. we split the training data to numerical data
+ ```
+ X_train_numerical = X_train[['Absolute magnitude(Mv)', 'Temperature (K)', 'Luminosity(L/Lo)',	'Radius(R/Ro)']]
+ X_test_numerical = X_test[['Absolute magnitude(Mv)', 'Temperature (K)', 'Luminosity(L/Lo)',	'Radius(R/Ro)']]
+ ```
+ 2. Initialize the Gaussian Naive Bayes model and fit our training data
+ ```
+ NB_classifier = GaussianNB()
+ NB_classifier.fit(X_train_numerical, y_train)
+ ```
+ 3. Printing the classification report to see our model's performance
+ ```
+y_pred = NB_classifier.predict(X_test_numerical)
+print(classification_report(y_test, y_pred))    
+ ```
 ## Results:
 
 * **Model 1**:
