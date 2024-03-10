@@ -12,7 +12,8 @@ In this study, we leverage a comprehensive astronomical dataset, originally cura
 
 Dataset Description: The dataset has 7 columns; 
 * Temperature (K) (numerical) - Represents the temperature of the star, which is measured in Kelvin (K).
-* Luminosity (L/Lo) (numerical) - The total amount of energy that is emmitted by the star over a given time frame, relative to the luminosity of the sun (Lo). Radius (R/Ro) (numerical) - The measure of the radius of the star relative to the radius of the sun (Ro).
+* Luminosity (L/Lo) (numerical) - The total amount of energy that is emmitted by the star over a given time frame, relative to the luminosity of the sun (Lo or 3.83×10^26).
+* Radius (R/Ro) (numerical) - The measure of the radius of the star relative to the radius of the sun (Ro).
 * Absolute Magnitude (Mv) (numerical) - The measure of the brightness of star from a set point in the universe (i.e. Measuring the brightness of stars from Earth).
 * Star Type (numerical) - Contains 6 star types, brown type, red dwarf, white dwarf, main sequence, supergiants, hypergiants; which are then represented by a numerical value.
 * Star Color (categorical) - Specifies the color of the star.
