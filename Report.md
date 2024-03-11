@@ -8,7 +8,7 @@ Machine Learning Project in Python
 
 ## Introduction 
 
-In this study, we leverage a comprehensive astronomical dataset, originally curated to encapsulate a wide array of celestial phenomena, to address a novel research question: predicting asteroid types based on a variety of celestial features. The dataset, which has been cleaned up and made available on Kaggle, includes detailed observations on stellar attributes such as temperature, luminosity, radius, absolute magnitude, spectral class, and color. These features are utilized to construct a predictive model for asteroid classification. The primary objective of this research is to establish a predictive model using a Neural Network and Naive Bayes model that can accurately classify asteroids into predefined categories, utilizing the stellar attributes outlined in the dataset. We choose to use this dataset as we all had an interest in astronomy and as such wanted to choose a project that related to it. We eventually settled on predicting star types as we thought it would be interesting to know more about the types of stars. 
+In this study, we leverage a comprehensive astronomical dataset, originally curated to encapsulate a wide array of celestial phenomena, to address a novel research question: can you predict asteroid types based on a variety of celestial features. The dataset, which has been cleaned up and made available on Kaggle, includes detailed observations on stellar attributes such as temperature, luminosity, radius, absolute magnitude, spectral class, and color. These features are utilized to construct a predictive model for asteroid classification. The primary objective of this research is to establish a predictive model using a Neural Network and Naive Bayes model that can accurately classify asteroids into predefined categories, utilizing the stellar attributes outlined in the dataset. We choose to use this dataset as we all had an interest in astronomy and as such wanted to choose a project that related to it. We eventually settled on predicting star types as we thought it would be interesting to know more about the types of stars. 
 
 Dataset Description: The dataset has 7 columns; 
 * Temperature (K) (numerical) - Represents the temperature of the star, which is measured in Kelvin (K).
@@ -68,7 +68,7 @@ yhat_train = linear_model.predict(X_train)
 yhat_test = linear_model.predict(X_test)
 ```
 
-3. We manually calculated the MSE of the predicted valuees from the actual values using the formula $ (1/n)\sum(\hat y - y)^2  $
+3. We manually calculated the MSE of the predicted values from the actual values using the formula $ (1/n)\sum(\hat y - y)^2  $
 ```
 y_train_error = ((yhat_train - np.array(y_train))**2).sum()
 y_test_error = ((yhat_test - np.array(y_test))**2).sum()
@@ -172,7 +172,7 @@ print(classification_report(y_test, y_pred))
 ```
 
    **Gaussian Naive Bayes model**
- 1. we split the training data to numerical data
+ 1. We split the training and testing data to numerical data
  ```
  X_train_numerical = X_train[['Absolute magnitude(Mv)', 'Temperature (K)', 'Luminosity(L/Lo)',	'Radius(R/Ro)']]
  X_test_numerical = X_test[['Absolute magnitude(Mv)', 'Temperature (K)', 'Luminosity(L/Lo)',	'Radius(R/Ro)']]
@@ -206,7 +206,7 @@ print(classification_report(y_test, y_pred))
     ___
 * **Model 3**:
     
-    The training accuracy slightly increased (2 percent) from our previous model with neural network. Since most of our training features are provided as numerical data, and our categorical features are rather uniform among the observations (resulting in very low training accuracy). we decided to exclude the categorical features and only perform a Gaussian Naive Bayes classification on these numerical features. And it turns out that our results are more accurate than the previous models.
+    The training accuracy slightly increased (2 percent) from our previous model with neural network. Since most of our training features are provided as numerical data, and our categorical features are rather uniform among the observations (resulting in very low training accuracy). We decided to exclude the categorical features and only perform a Gaussian Naive Bayes classification on these numerical features. And it turns out that our results are more accurate than the previous models.
 
     **Categorical Naive Bayes model report:**
     ```
@@ -243,22 +243,22 @@ print(classification_report(y_test, y_pred))
 
 
 ## Discussion
-We started our performing linear regression, hoping to gain insight on our data with the simple appoach. Although we received very high accuracy, after some careful discussions among the group members, we realized that this result is misleading: since we are trying to classify the star types,  the results we get from regression does not make much sense. 
+We started our performing linear regression, hoping to gain insight on our data with the simple appoach. Although we received very high accuracy, after some careful discussions among the group members, we realized that this result is misleading: since we are trying to classify the star types,  the results we get from regression did not make much sense. 
 
-Thus we decided to switch to neural network as our second model, which produced a relative good accuracy and a more convincing result that we agree on. We ran into trouble as our data did not sufficiently predict the Star Type of 0 and 5 enough for the model to predict any samples for it, with the node units being 16, 8, 4, and then 6 respectively.
-We fixed this problem by making our hidden layers 16 nodes, which fixed that problem as well as increasing the validation accuracy. 
+Thus we decided to switch to neural network as our second model, which produced a relatively good accuracy and a more convincing result that we agree on. We ran into trouble as our data did not sufficiently predict the Star Type of 0 and 5 enough for the model to predict any samples for it, with the node units being 16, 8, 4, and then 6 respectively.
+We fixed this problem by making our hidden layers 16 nodes, which also resulted in an increase in the validation accuracy. 
 
-We decided on choosing naive bayes as our third model. Although we resulted in very good accuracy, but for our features: temperature, luminosity, radius and absolute magnitude, are all numerical data that are rather dependent from each other in terms of physics, specifically luminosity, radius and temperature are related by the equation L = (7.125*10e-7R), according to the Stefan-Boltzmann Law, were L is luminosity in watss, R is the radius in meters and T is the temperature in degree kelvin. Similarly, absolute magnitude is just another measure of luminosity. Therefore, our features are very dependent upon each other, and the Naive Bayes model's assumption of independence between the features does not correctly hold in our data.
+We decided on choosing naive bayes as our third model. Although we resulted in very good accuracy, our features: temperature, luminosity, radius and absolute magnitude are all numerical data that are rather dependent from each other in terms of physics. Specifically luminosity, radius and temperature are related by the equation $L = (7.125*10e^{-7})R^2T^4$, according to the Stefan-Boltzmann Law, where L is luminosity in watts, R is the radius in meters and T is the temperature in degrees kelvin. Similarly, absolute magnitude is just another measure of luminosity. Therefore, our features are very dependent upon each other, and the Naive Bayes model's assumption of independence between the features does not correctly hold in our data.
 
 
 ## Conclusion
-In our study, we employ three different predictive models to classify star types based on features derived from asteroid observations. Of these models, linear regression provides a baseline for comparison. The linear model should not perform very well on the classification problem, since it cannot handle the complexity of the features in our data. Neural network offers a more sophisticated approach through its deep learning architecture, capable of capturing complex patterns, but its performance is silghtly worse than the excellent accuracy of the Naive Bayes model. It has accuracy of 94% on the training data but only 88% on the testing data. In our analysis, Naive Bayes stands out with 96% accuracy on the testing data. Its ability to deal with the uncertainty and variability inherent in the dataset resulted in the most accurate classification of star types. 
+In our study, we employ three different predictive models to classify star types based on features derived from asteroid observations. Of these models, linear regression provides a baseline for comparison. The linear model should not perform very well on the classification problem, since it cannot handle the complexity of the features in our data. Neural network offers a more sophisticated approach through its deep learning architecture, capable of capturing complex patterns, but its performance is slightly worse than the excellent accuracy of the Naive Bayes model. It has an accuracy of 94% on the training data, but only 88% on the testing data. In our analysis, Naive Bayes stands out with 96% accuracy on the testing data. Its ability to deal with the uncertainty and variability inherent in the dataset resulted in the most accurate classification of star types. 
 
 ## Collaboration
 
 * **Bran Zhang** : Title : Contributions
 * **Henry Feng** : Title : Contributions
-* **Christopher Thomason** : Title : Contributions
+* **Christopher Thomason** : Writer : Provided insight and direction when considering the models and proofread final report.
 * **Allen Keng** : Title : Contributions
 * **Shaz Karovaliya** : Title : Contributions
 * **Lebin Huang** : Title : Contributions
