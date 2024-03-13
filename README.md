@@ -83,7 +83,8 @@ yhat_train = linear_model.predict(X_train)
 yhat_test = linear_model.predict(X_test)
 ```
 
-3. We manually calculated the MSE of the predicted values from the actual values using the formula $ (1/n)\sum(\hat y - y)^2  $
+3. We manually calculated the MSE of the predicted values from the actual values using the formula 
+$(1/n)\sum(\hat y - y)^2$
 ```
 y_train_error = ((yhat_train - np.array(y_train))**2).sum()
 y_test_error = ((yhat_test - np.array(y_test))**2).sum()
